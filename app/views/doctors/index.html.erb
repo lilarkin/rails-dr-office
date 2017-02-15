@@ -1,0 +1,30 @@
+<h1>Doctors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Specialty</th>
+      <th>Hospital</th>
+      <th colspan='4'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doctors.each do |doctor| %>
+      <tr>
+        <td><%= doctor.name %></td>
+        <td><%= doctor.specialty %></td>
+        <td><%= doctor.hospital %></td>
+        <td><%= link_to 'Show', doctor, class: 'btn deep-purple lighten-1 white-text' %></td>
+        <td><%= link_to 'Edit', edit_doctor_path(doctor), class: 'btn deep-purple lighten-1 white-text' %></td>
+        <td><%= link_to 'Delete', doctor, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn deep-purple lighten-1 white-text' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+
+<%= link_to 'New Doctor', new_doctor_path, class: 'btn deep-purple lighten-1 white-text' %> |
+
+<%= link_to 'Add Patient', new_patient_path, class: 'btn deep-purple lighten-1 white-text' %>

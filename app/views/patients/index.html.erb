@@ -1,0 +1,31 @@
+<h1>Patients</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th colspan='3'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.gender %></td>
+        <td><%= link_to 'Show', patient_path(patient), class: 'btn deep-purple lighten-1 white-text' %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient), class: 'btn deep-purple lighten-1 white-text' %></td>
+        <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn deep-purple lighten-1 white-text' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patient', new_patient_path, class: 'btn deep-purple lighten-1 white-text' %>

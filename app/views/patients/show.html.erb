@@ -1,0 +1,27 @@
+<h1><%= @patient.full_name %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Appointment Date</th>
+      <th>Appointment Time</th>
+      <th>Hospital</th>
+      <th colspan='4'></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.time %></td>
+        <td><%= appointment.location %></td>
+        <td><%= link_to 'Delete', appointment_path(appointment), 
+                method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn deep-purple lighten-1 white-text' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Patients', patients_path, class: 'btn deep-purple lighten-1 white-text' %>

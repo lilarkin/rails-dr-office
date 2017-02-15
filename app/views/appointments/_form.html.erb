@@ -1,0 +1,14 @@
+<%= form_for @appointment do |f| %>
+ <%= f.select :doctor_id, options_for_select(@doctors) %>
+ <%= f.select :patient_id, options_for_select(@patients) %>
+ <%= f.text_field :date, required: true, placeholder: 'Date' %>
+ <%= f.text_field :time, required: true, placeholder: 'Time' %>
+ <%= f.text_field :location, required: true, placeholder: 'Hospital' %>
+ 
+ <%= f.submit nil, class: 'btn deep-purple lighten-1 white-text' %>
+<% end %>
+
+<hr />
+<%= link_to 'All Doctors', doctors_path, class: 'btn deep-purple lighten-1 white-text' %> |
+<%= link_to 'All Patients', patients_path, class: 'btn deep-purple lighten-1 white-text' %> |
+<%= link_to 'Back', :back, class: 'btn deep-purple lighten-1 white-text' %>

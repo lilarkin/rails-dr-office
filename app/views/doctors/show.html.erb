@@ -1,0 +1,34 @@
+<h1>Doctor: <%= @doctor.name %> </h1>
+
+<% unless @doctor.specialty.empty? %>
+    <p>
+      <strong>Specialty:</strong>
+      <%= @doctor.specialty %>
+    </p>
+    <hr />
+<% end %>
+
+<% unless @doctor.hospital.empty? %>
+    <p>
+      <strong>Hospital:</strong>
+      <%= @doctor.hospital %>
+    </p>
+    <hr />
+<% end %>
+
+<% if @doctor.patients.any? %>
+    <h5> Patients </h5>
+    <ul>
+        <% @doctor.appointments.each do |appointment| %>
+          <li>
+            <%= appointment.patient.full_name %> - <%= appointment.information %> -
+            <%= link_to 'Remove', appointment_path(appointment), method: :delete, data: {confirm: 'Really remove this appointment?'}, class: 'btn deep-purple lighten-1 white-text' %>
+          </li>
+        <% end %>
+    </ul>
+<% else %>
+  <h5>No Patients Found</h5>
+<% end %>
+
+<%= link_to 'All Doctors', doctors_path, class: 'btn deep-purple lighten-1 white-text' %> |
+<%= link_to 'Edit', edit_doctor_path(@doctor), class: 'btn deep-purple lighten-1 white-text' %>
