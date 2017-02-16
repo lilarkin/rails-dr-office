@@ -16,6 +16,7 @@ gem 'materialize-sass'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 
+
 group :development, :test do
   gem 'pry'
 end
